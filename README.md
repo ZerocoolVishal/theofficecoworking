@@ -9,6 +9,9 @@ G-65, Master Business Center, Wimco Naka
 Kalyan Badlapur Road, next to Miraj Cinemas
 Housing Board Colony, Ambernath, Maharashtra 421505
 
+📞 +91 88500 13526 · ✉️ theofficeambernath@gmail.com
+[Instagram](https://www.instagram.com/theofficeambernath/) · [Facebook](https://www.facebook.com/theofficeambernath/)
+
 ---
 
 ## Stack
@@ -46,6 +49,7 @@ Contact details appear in several places — change all of them together:
 |---|---|
 | Phone / WhatsApp | 7 links: `wa.me/91…` and `tel:+91…` |
 | Email | contact card in the Visit Us section |
+| Instagram / Facebook | contact card and footer (2 links each) |
 | Address | Visit Us section, footer, `og:description`, Maps link |
 | Pricing | the Fixed Desk card |
 
@@ -64,7 +68,6 @@ and it covers the frame automatically.
 
 ## Before going live
 
-- Replace the placeholder email `hello@theofficecoworks.in` with a real address
 - Confirm the opening days (currently listed as Monday to Saturday, 8:00 AM to 10:00 PM)
 - Check the amenity copy is accurate: ergonomic chairs and storage, housekeeping,
   business address use, cabins for 2–8 people, and the free trial day
