@@ -54,16 +54,16 @@
      min-height (not height) means content can still grow rather than clip. */
   @media (min-width: 1024px) {
     .hero-inner {
-      min-height: calc(100vh - 7.4rem);
-      min-height: calc(100svh - 7.4rem);
+      min-height: calc(100vh - 8.6rem);
+      min-height: calc(100svh - 8.6rem);
       display: flex;
       align-items: center;
-      padding-top:    clamp(1rem, 3vh, 2.5rem);
-      padding-bottom: clamp(1rem, 3vh, 2.5rem);
+      padding-top:    clamp(0.75rem, 2.5vh, 2.5rem);
+      padding-bottom: clamp(0.75rem, 2.5vh, 2.5rem);
     }
     /* Every vertical gap in the hero scales with screen height, so a short
        laptop shrinks the whole block instead of pushing the CTAs off-screen. */
-    .hero-inner .h-hero     { font-size: min(13vw, 10vh, 7rem); }
+    .hero-inner .h-hero     { font-size: min(13vw, 9.5vh, 7rem); }
     .hero-inner .hero-badge { margin-bottom: clamp(0.75rem, 2.5vh, 2.25rem); }
     .hero-inner .hero-copy  { margin-top:    clamp(1rem, 3vh, 2.5rem); }
     .hero-inner .hero-cta   { margin-top:    clamp(1rem, 3vh, 2rem); }
@@ -158,9 +158,9 @@
 
 <!-- ══════════════════════ NAV ══════════════════════ -->
 <header class="sticky top-0 z-40 bg-tan/85 backdrop-blur-md border-b-2 border-ink">
-  <nav class="mx-auto max-w-6xl px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+  <nav class="mx-auto max-w-6xl px-5 sm:px-8 h-20 sm:h-24 flex items-center justify-between gap-4">
     <a href="#top" class="flex items-center gap-2.5 shrink-0">
-      <span class="font-display font-black text-xl sm:text-2xl leading-none">The&nbsp;Office<span class="text-orange">.</span></span>
+      <span class="font-display font-black text-[1.875rem] sm:text-[2.75rem] leading-none">The&nbsp;Office<span class="text-orange">.</span></span>
     </a>
 
     <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
@@ -472,7 +472,7 @@
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
       <div>
         <div class="flex items-center">
-          <span class="font-display font-black text-3xl leading-none">The Office<span class="text-orange">.</span></span>
+          <span class="font-display font-black text-[2.5rem] sm:text-[3.5rem] leading-none">The Office<span class="text-orange">.</span></span>
         </div>
         <p class="mt-4 text-sm text-tan/55 max-w-xs leading-relaxed">
           The Office Co-working Space · G-65, Master Business Center, Kalyan Badlapur Road, next to Miraj Cinemas, Wimco Naka, Ambernath, Maharashtra 421505
