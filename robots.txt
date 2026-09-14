@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zerocoolvishal.github.io/theofficecoworking/sitemap.xml

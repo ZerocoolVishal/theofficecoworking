@@ -38,8 +38,29 @@ Then visit <http://localhost:4321>.
 index.html                          the page
 images/hero-interior.jpg            interior render, used in the hero
 images/master-business-center.jpg   the building, used in Visit Us
+images/og-cover.jpg                 1200x630 card shown when the link is shared
+icons/favicon.svg                   scalable favicon
+icons/favicon-16.png, favicon-32.png
+icons/apple-touch-icon.png          iOS home screen
+icons/icon-192.png, icon-512.png    web app manifest
+site.webmanifest                    installable web app metadata
+robots.txt, sitemap.xml             search engines
 .claude/launch.json                 local preview server config
 ```
+
+## Site address
+
+Absolute URLs (canonical, Open Graph, structured data, sitemap) currently point at
+the GitHub Pages address:
+
+```
+https://zerocoolvishal.github.io/theofficecoworking
+```
+
+Moving to a custom domain means find-and-replacing that one string in `index.html`,
+`robots.txt` and `sitemap.xml`, and updating `start_url` / `scope` in
+`site.webmanifest`. Share previews will not render until the site is actually
+reachable at whichever address is set, because Open Graph requires absolute URLs.
 
 ## Editing
 
@@ -51,7 +72,7 @@ Contact details appear in several places — change all of them together:
 | Email | contact card in the Visit Us section |
 | Instagram / Facebook | contact card and footer (2 links each) |
 | Address | Visit Us section, footer, `og:description`, Maps link |
-| Pricing | the Fixed Desk card |
+| Pricing | the Fixed Desk card, and the JSON-LD block at the end of the file |
 
 Swapping a photo is one line — drop an `<img>` inside the `<figure class="photo-ph">`
 and it covers the frame automatically.
@@ -65,6 +86,10 @@ and it covers the frame automatically.
   JavaScript disabled
 - Ligatures are switched off for display type because Fraunces' decorative
   `ffi` renders badly in the word "Office"
+- Structured data (schema.org `LocalBusiness`) covers the address, hours, phone,
+  social profiles, amenities and desk price, so the business can appear in local
+  search results
+- A skip link is the first focusable element, for keyboard and screen-reader users
 
 ## Before going live
 

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="The Office">
+  <rect width="512" height="512" rx="113" fill="#111111"/>
+  <circle cx="256" cy="238" r="101" fill="none" stroke="#FF8550" stroke-width="64"/>
+  <circle cx="380" cy="365" r="22" fill="#FF8550"/>
+</svg>
