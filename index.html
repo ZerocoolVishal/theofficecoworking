@@ -443,7 +443,7 @@
               <div>
                 <p class="font-bold text-base sm:text-lg">Pay the &#8377;500 token</p>
                 <p class="text-sm text-tan/55 leading-relaxed">
-                  <span class="md:hidden">Tap the button below. It opens Google Pay, PhonePe, Paytm or whichever UPI app you already use.</span>
+                  <span class="md:hidden">Tap the button below and pick your UPI app. If your phone jumps straight into one app, use the named buttons instead.</span>
                   <span class="hidden md:inline">Scan the code with your phone camera or any UPI app. Google Pay, PhonePe and Paytm all read it.</span>
                 </p>
               </div>
@@ -466,6 +466,19 @@
             Pay &#8377;500 token
             <span class="group-hover:translate-x-1 transition-transform">→</span>
           </a>
+
+          <!-- Android skips its own chooser when a default UPI app is set, which
+               is how a tap can land straight in WhatsApp Pay. These open a named
+               app directly, so a visitor is never stuck with someone else's
+               default. Same payload as the button above. -->
+          <div class="md:hidden flex items-stretch gap-2">
+            <a href="tez://upi/pay?pa=vishalbhosle83@oksbi&amp;pn=The%20Office%20Co-working%20Space&amp;am=500&amp;cu=INR&amp;tn=Seat%20booking%20token"
+               class="flex-1 text-center bg-tan/10 border-2 border-tan/20 rounded-xl px-2 py-3 text-xs font-bold hover:bg-orange hover:text-ink hover:border-orange transition-colors">Google Pay</a>
+            <a href="phonepe://pay?pa=vishalbhosle83@oksbi&amp;pn=The%20Office%20Co-working%20Space&amp;am=500&amp;cu=INR&amp;tn=Seat%20booking%20token"
+               class="flex-1 text-center bg-tan/10 border-2 border-tan/20 rounded-xl px-2 py-3 text-xs font-bold hover:bg-orange hover:text-ink hover:border-orange transition-colors">PhonePe</a>
+            <a href="paytmmp://pay?pa=vishalbhosle83@oksbi&amp;pn=The%20Office%20Co-working%20Space&amp;am=500&amp;cu=INR&amp;tn=Seat%20booking%20token"
+               class="flex-1 text-center bg-tan/10 border-2 border-tan/20 rounded-xl px-2 py-3 text-xs font-bold hover:bg-orange hover:text-ink hover:border-orange transition-colors">Paytm</a>
+          </div>
 
           <!-- Laptop: upi:// links do nothing here, so scan instead -->
           <div class="hidden md:flex flex-col items-center gap-4 bg-tan rounded-2xl border-2 border-tan p-6">
