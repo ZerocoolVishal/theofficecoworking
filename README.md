@@ -36,7 +36,9 @@ Then visit <http://localhost:4321>.
 
 ```
 index.html                          the page
-images/hero-interior.jpg            interior render, used in the hero
+images/hero-interior-cutout.webp    interior render, background removed (hero)
+images/hero-interior-cutout.png     PNG fallback for the above
+images/hero-interior-source.png     untouched original, kept for re-cutting
 images/master-business-center.jpg   the building, used in Visit Us
 images/og-cover.jpg                 1200x630 card shown when the link is shared
 icons/favicon.svg                   scalable favicon
