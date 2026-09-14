@@ -188,18 +188,18 @@
 <div class="bg-ink text-tan py-2.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em]">
   <div class="marquee">
     <div class="marquee__track">
-      <span>★ Now open in Ambernath West</span><span class="text-orange">◆</span>
+      <span>★ Opening 1 October in Ambernath West</span><span class="text-orange">◆</span>
       <span>Launch offer: ₹2,999/month</span><span class="text-orange">◆</span>
       <span>Fixed desks &amp; private cabins</span><span class="text-orange">◆</span>
-      <span>★ Now open in Ambernath West</span><span class="text-orange">◆</span>
+      <span>★ Opening 1 October in Ambernath West</span><span class="text-orange">◆</span>
       <span>Launch offer: ₹2,999/month</span><span class="text-orange">◆</span>
       <span>Fixed desks &amp; private cabins</span><span class="text-orange">◆</span>
     </div>
     <div class="marquee__track" aria-hidden="true">
-      <span>★ Now open in Ambernath West</span><span class="text-orange">◆</span>
+      <span>★ Opening 1 October in Ambernath West</span><span class="text-orange">◆</span>
       <span>Launch offer: ₹2,999/month</span><span class="text-orange">◆</span>
       <span>Fixed desks &amp; private cabins</span><span class="text-orange">◆</span>
-      <span>★ Now open in Ambernath West</span><span class="text-orange">◆</span>
+      <span>★ Opening 1 October in Ambernath West</span><span class="text-orange">◆</span>
       <span>Launch offer: ₹2,999/month</span><span class="text-orange">◆</span>
       <span>Fixed desks &amp; private cabins</span><span class="text-orange">◆</span>
     </div>
@@ -220,9 +220,9 @@
       <a href="#visit"      class="hover:text-orange transition-colors">Visit us</a>
     </div>
 
-    <a href="#visit"
+    <a href="#book"
        class="shrink-0 bg-ink text-tan font-bold text-xs sm:text-sm px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border-2 border-ink shadow-[3px_3px_0_#FF8550] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all">
-      Book a visit
+      Book a seat
     </a>
   </nav>
 </header>
@@ -289,6 +289,34 @@
 
 </section>
 
+<!-- ══════════════════════ COUNTDOWN ══════════════════════ -->
+<section id="opening" class="bg-ink text-tan border-t-2 border-ink scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 py-12 sm:py-16">
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-9 lg:gap-14">
+
+      <div class="reveal">
+        <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange">Opening soon</p>
+        <h2 class="font-display font-black text-4xl sm:text-6xl mt-3 leading-none">
+          We Open On<br />1 October<span class="text-orange">.</span>
+        </h2>
+        <p class="mt-4 text-sm sm:text-base text-tan/60 leading-relaxed max-w-sm">
+          We are booking fixed desks now, before the doors open. Seats are held in the order they are paid for.
+        </p>
+      </div>
+
+      <!-- Counts down to 1 Oct 2026, 00:00 IST. The date is set once, in the
+           script at the end of this file. Without JavaScript the cells show
+           dashes and the heading above still states the date. -->
+      <div class="reveal grid grid-cols-4 gap-2 sm:gap-4 w-full lg:w-auto lg:min-w-[520px]">
+        <div class="bg-tan/5 border-2 border-tan/15 rounded-2xl px-1.5 py-4 sm:px-6 sm:py-5 text-center"><span id="cd-d" class="block w-full font-display font-black text-4xl sm:text-6xl leading-none tabular-nums">--</span><span class="mt-2 block text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] text-tan/45">Days</span></div>
+        <div class="bg-tan/5 border-2 border-tan/15 rounded-2xl px-1.5 py-4 sm:px-6 sm:py-5 text-center"><span id="cd-h" class="block w-full font-display font-black text-4xl sm:text-6xl leading-none tabular-nums">--</span><span class="mt-2 block text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] text-tan/45">Hours</span></div>
+        <div class="bg-tan/5 border-2 border-tan/15 rounded-2xl px-1.5 py-4 sm:px-6 sm:py-5 text-center"><span id="cd-m" class="block w-full font-display font-black text-4xl sm:text-6xl leading-none tabular-nums">--</span><span class="mt-2 block text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] text-tan/45">Mins</span></div>
+        <div class="bg-tan/5 border-2 border-tan/15 rounded-2xl px-1.5 py-4 sm:px-6 sm:py-5 text-center"><span id="cd-s" class="block w-full font-display font-black text-4xl sm:text-6xl leading-none tabular-nums">--</span><span class="mt-2 block text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] text-tan/45">Secs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════════════ PRICING ══════════════════════ -->
 <section id="pricing" class="bg-cream border-t-2 border-ink scroll-mt-20">
   <div class="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-28">
@@ -337,7 +365,7 @@
            class="relative mt-10 flex items-center justify-center gap-2 bg-orange text-ink font-bold text-base sm:text-lg px-6 py-4 rounded-2xl border-2 border-orange hover:bg-tan hover:border-tan transition-colors">
           Claim a desk →
         </a>
-        <p class="relative mt-3 text-center text-xs text-tan/50">No deposit drama<sup class="text-orange font-bold">*</sup> · Walk in for a free day trial</p>
+        <p class="relative mt-3 text-center text-xs text-tan/50">No deposit drama<sup class="text-orange font-bold">*</sup> · Seats open from 1 October</p>
         <p class="relative mt-3 text-center text-[11px] leading-relaxed text-tan/40">
           <span class="text-orange font-bold">*</span> A refundable deposit applies on the 1 month plan.
           Take a 6 month plan and there is no deposit at all.
@@ -372,6 +400,59 @@
            class="mt-6 flex items-center justify-center gap-2 bg-ink text-tan font-bold text-base sm:text-lg px-6 py-4 rounded-2xl border-2 border-ink hover:bg-orange hover:text-ink transition-colors">
           Enquire about cabins →
         </a>
+      </div>
+    </div>
+
+    <!-- ════════ BOOK A SEAT · UPI token ════════════════════════════════════
+         The pay button is a UPI deep link. On a phone it opens whichever UPI
+         app the visitor has (Google Pay, PhonePe, Paytm, BHIM); on a desktop
+         nothing happens, which is why the UPI ID is also printed below it.
+
+         TO MAKE THIS WORK, replace vishalbhosle83@oksbi in BOTH places below
+         with the real UPI ID. Until then the button opens a UPI app that
+         cannot find the payee, and no money moves.
+
+         The site cannot tell whether a payment succeeded — it is a static
+         page with no server. That is why the visitor is asked to send the
+         screenshot on WhatsApp, which is what actually confirms the seat. -->
+    <div id="book" class="reveal mt-6 lg:mt-8 bg-ink text-tan rounded-3xl border-2 border-ink p-7 sm:p-12 shadow-[8px_8px_0_#FF8550] scroll-mt-24">
+      <div class="grid lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-14 items-center">
+
+        <div>
+          <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange">Limited seats</p>
+          <h3 class="font-display font-black text-4xl sm:text-5xl mt-2 leading-none">Book Your<br />Seat<span class="text-orange">.</span></h3>
+          <p class="mt-5 text-base sm:text-lg text-tan/70 leading-relaxed max-w-md">
+            We have a fixed number of desks, so seats go in the order they are booked.
+            Pay a <span class="font-bold text-tan">&#8377;500 token</span> and we will hold one in your name.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <a href="upi://pay?pa=vishalbhosle83@oksbi&amp;pn=The%20Office%20Co-working%20Space&amp;am=500&amp;cu=INR&amp;tn=Seat%20booking%20token"
+             class="group flex items-center justify-between gap-4 bg-orange text-ink font-bold text-lg sm:text-xl px-6 py-5 rounded-2xl border-2 border-orange hover:bg-tan hover:border-tan transition-colors">
+            Pay &#8377;500 token
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+          <p class="text-center text-xs text-tan/45">
+            Opens Google Pay, PhonePe, Paytm or any UPI app on your phone
+          </p>
+
+          <div class="mt-2 rounded-2xl border-2 border-dashed border-tan/20 px-5 py-4 text-center">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-tan/40">Or pay to this UPI ID</p>
+            <p class="mt-1 font-bold text-base break-all">vishalbhosle83@oksbi</p>
+          </div>
+
+          <a href="https://wa.me/918850013526?text=Hi%2C%20I%20have%20paid%20the%20%E2%82%B9500%20token%20to%20book%20a%20seat%20at%20The%20Office.%20Sending%20the%20screenshot%20here."
+             target="_blank" rel="noopener"
+             class="mt-1 flex items-center justify-center gap-2 bg-tan/10 text-tan font-bold text-sm sm:text-base px-5 py-4 rounded-2xl border-2 border-tan/25 hover:bg-orange hover:text-ink hover:border-orange transition-colors text-center">
+            Paid? Send us the screenshot ↗
+          </a>
+          <ol class="mt-1 flex flex-col gap-2 text-[13px] leading-relaxed text-tan/55">
+            <li class="flex gap-3"><span class="font-bold text-orange shrink-0">1</span> Pay &#8377;500 to the UPI ID above.</li>
+            <li class="flex gap-3"><span class="font-bold text-orange shrink-0">2</span> Send us the payment screenshot on WhatsApp.</li>
+            <li class="flex gap-3"><span class="font-bold text-orange shrink-0">3</span> We reply confirming your seat is held.</li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
@@ -415,11 +496,11 @@
       <div class="reveal bg-orange rounded-2xl border-2 border-ink p-5 sm:p-7 flex flex-col justify-between">
         <div>
           <p class="text-2xl sm:text-3xl">👋</p>
-          <h3 class="font-display font-black text-lg sm:text-2xl mt-3 leading-tight">Come Try It</h3>
-          <p class="mt-1.5 text-xs sm:text-sm text-ink/70">Spend a day with us for free, then decide.</p>
+          <h3 class="font-display font-black text-lg sm:text-2xl mt-3 leading-tight">Book Early</h3>
+          <p class="mt-1.5 text-xs sm:text-sm text-ink/70">Seats are going now, ahead of 1 October.</p>
         </div>
-        <a href="#visit" class="mt-5 inline-flex items-center gap-1.5 font-bold text-sm sm:text-base border-b-2 border-ink w-fit hover:gap-3 transition-all">
-          Book a visit <span>→</span>
+        <a href="#book" class="mt-5 inline-flex items-center gap-1.5 font-bold text-sm sm:text-base border-b-2 border-ink w-fit hover:gap-3 transition-all">
+          Book a seat <span>→</span>
         </a>
       </div>
     </div>
@@ -434,8 +515,8 @@
       <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange mb-4">03 / Come see it</p>
       <h2 class="font-display font-black h-sec">Find Us In<br />Ambernath<span class="text-orange">.</span></h2>
       <p class="mt-5 text-base sm:text-lg text-ink/70 leading-relaxed">
-        Walk in any day for a free trial. Sit at a desk, use the Wi-Fi, drink our chai,
-        and decide afterwards.
+        We open on 1 October. Come and see the space before then, or book your
+        seat now and walk straight in on day one.
       </p>
     </div>
 
@@ -498,7 +579,7 @@
         </div>
 
         <div class="mt-auto pt-7">
-          <p class="text-sm font-bold uppercase tracking-wider text-ink/45">Open hours</p>
+          <p class="text-sm font-bold uppercase tracking-wider text-ink/45">Open hours from 1 October</p>
           <p class="mt-1.5 text-base">Monday to Saturday</p>
           <p class="text-base font-bold">8:00 AM to 10:00 PM</p>
         </div>
@@ -514,13 +595,13 @@
       Stop Working<br />From The Sofa<span class="text-ink/40">.</span>
     </h2>
     <p class="reveal mt-5 text-base sm:text-xl text-ink/75 max-w-lg mx-auto">
-      Fixed desks at ₹2,999/month. Private cabins on request. Free day trial, no strings.
+      Fixed desks at ₹2,999/month. Private cabins on request. Book your seat before we open on 1 October.
     </p>
     <div class="reveal mt-9 flex flex-col sm:flex-row gap-3 justify-center max-w-md sm:max-w-none mx-auto">
-      <a href="https://wa.me/918850013526?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20day%20at%20The%20Office."
+      <a href="#book"
          target="_blank" rel="noopener"
          class="bg-ink text-tan font-bold text-base sm:text-lg px-8 py-4 rounded-2xl border-2 border-ink shadow-[5px_5px_0_#fff] hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all">
-        Book a free trial day
+        Book your seat
       </a>
       <a href="tel:+918850013526"
          class="bg-cream text-ink font-bold text-base sm:text-lg px-8 py-4 rounded-2xl border-2 border-ink shadow-[5px_5px_0_#111] hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all">
@@ -570,6 +651,42 @@
 <script>
   // Current year in the footer
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- Opening countdown -------------------------------------------------
+  // Change this one line to move the opening date. It carries an explicit
+  // +05:30 offset so the count is correct whatever timezone the visitor is in.
+  const OPENING = new Date('2026-10-01T00:00:00+05:30');
+
+  (function countdown() {
+    const cells = {
+      d: document.getElementById('cd-d'), h: document.getElementById('cd-h'),
+      m: document.getElementById('cd-m'), s: document.getElementById('cd-s'),
+    };
+    if (!cells.d) return;
+
+    const pad = (n) => String(n).padStart(2, '0');
+
+    function tick() {
+      const left = OPENING - new Date();
+      if (left <= 0) {
+        // Past the date: stop counting and say so rather than showing zeros.
+        const grid = cells.d.closest('.grid');
+        if (grid) {
+          grid.innerHTML =
+            '<p class="col-span-4 font-display font-black text-3xl sm:text-5xl">' +
+            'We are open<span class="text-orange">.</span></p>';
+        }
+        return;
+      }
+      const secs = Math.floor(left / 1000);
+      cells.d.textContent = Math.floor(secs / 86400);
+      cells.h.textContent = pad(Math.floor(secs / 3600) % 24);
+      cells.m.textContent = pad(Math.floor(secs / 60) % 60);
+      cells.s.textContent = pad(secs % 60);
+      setTimeout(tick, 1000);
+    }
+    tick();
+  })();
 
   // Reveal sections as they scroll into view
   const targets = document.querySelectorAll('.reveal');

@@ -73,6 +73,8 @@ Contact details appear in several places — change all of them together:
 | Phone / WhatsApp | 7 links: `wa.me/91…` and `tel:+91…` |
 | Email | contact card in the Visit Us section |
 | Instagram / Facebook | contact card and footer (2 links each) |
+| UPI ID for the token | the Book Your Seat block, in the `upi://` link and printed below it |
+| Opening date | the countdown section, and the `OPENING` constant in the script at the end |
 | Address | Visit Us section, footer, `og:description`, Maps link |
 | Pricing | the Fixed Desk card, and the JSON-LD block at the end of the file |
 
@@ -92,6 +94,21 @@ and it covers the frame automatically.
   social profiles, amenities and desk price, so the business can appear in local
   search results
 - A skip link is the first focusable element, for keyboard and screen-reader users
+
+## Booking a seat
+
+The space opens on 1 October. Until then the page sells pre-booked fixed desks:
+a visitor pays a ₹500 token over UPI, sends the screenshot on WhatsApp, and the
+seat is held.
+
+Two limits worth knowing, both because this is a static page with no server:
+
+- **It cannot verify a payment.** The button only opens the visitor's UPI app.
+  The WhatsApp screenshot is what actually confirms a booking.
+- **It cannot count remaining seats.** The copy says seats are limited without
+  naming a number, because a hard-coded count goes stale the moment one sells.
+
+UPI also lets the payer edit the amount, so ₹500 is prefilled, not enforced.
 
 ## Before going live
 
