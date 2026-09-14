@@ -404,54 +404,78 @@
     </div>
 
     <!-- ════════ BOOK A SEAT · UPI token ════════════════════════════════════
-         The pay button is a UPI deep link. On a phone it opens whichever UPI
-         app the visitor has (Google Pay, PhonePe, Paytm, BHIM); on a desktop
-         nothing happens, which is why the UPI ID is also printed below it.
+         Two ways to pay the same thing, swapped by screen width:
+           phone  -> a upi:// deep link, which opens the visitor's UPI app
+           laptop -> images/upi-qr.svg, since upi:// does nothing on desktop
+         Both carry the identical payload, so either route prefills ₹500.
+         The QR was generated from that payload and decoded back to verify it;
+         regenerate it if the UPI ID or amount ever changes, or the printed
+         ID and the symbol will disagree.
 
-         TO MAKE THIS WORK, replace vishalbhosle83@oksbi in BOTH places below
-         with the real UPI ID. Until then the button opens a UPI app that
-         cannot find the payee, and no money moves.
-
-         The site cannot tell whether a payment succeeded — it is a static
-         page with no server. That is why the visitor is asked to send the
-         screenshot on WhatsApp, which is what actually confirms the seat. -->
+         The page cannot confirm a payment — it is static, with no server.
+         The WhatsApp screenshot is what actually books the seat. -->
     <div id="book" class="reveal mt-6 lg:mt-8 bg-ink text-tan rounded-3xl border-2 border-ink p-7 sm:p-12 shadow-[8px_8px_0_#FF8550] scroll-mt-24">
-      <div class="grid lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-14 items-center">
+      <div class="grid lg:grid-cols-[1.05fr_1fr] gap-9 lg:gap-14 items-center">
 
         <div>
           <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange">Limited seats</p>
           <h3 class="font-display font-black text-4xl sm:text-5xl mt-2 leading-none">Book Your<br />Seat<span class="text-orange">.</span></h3>
           <p class="mt-5 text-base sm:text-lg text-tan/70 leading-relaxed max-w-md">
             We have a fixed number of desks, so seats go in the order they are booked.
-            Pay a <span class="font-bold text-tan">&#8377;500 token</span> and we will hold one in your name.
+            Reserving one takes two steps.
           </p>
+
+          <ol class="mt-7 flex flex-col gap-5">
+            <li class="flex gap-4">
+              <span class="grid place-items-center shrink-0 w-9 h-9 rounded-full bg-orange text-ink font-display font-black text-lg">1</span>
+              <div>
+                <p class="font-bold text-base sm:text-lg">Pay the &#8377;500 token</p>
+                <p class="text-sm text-tan/55 leading-relaxed">On your phone, tap the button. On a laptop, scan the code with any UPI app.</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid place-items-center shrink-0 w-9 h-9 rounded-full bg-orange text-ink font-display font-black text-lg">2</span>
+              <div>
+                <p class="font-bold text-base sm:text-lg">Send us the screenshot on WhatsApp</p>
+                <p class="text-sm text-tan/55 leading-relaxed">We reply confirming the seat is held in your name.</p>
+              </div>
+            </li>
+          </ol>
         </div>
 
         <div class="flex flex-col gap-3">
+
+          <!-- Phone: opens the UPI app directly -->
           <a href="upi://pay?pa=vishalbhosle83@oksbi&amp;pn=The%20Office%20Co-working%20Space&amp;am=500&amp;cu=INR&amp;tn=Seat%20booking%20token"
-             class="group flex items-center justify-between gap-4 bg-orange text-ink font-bold text-lg sm:text-xl px-6 py-5 rounded-2xl border-2 border-orange hover:bg-tan hover:border-tan transition-colors">
+             class="md:hidden group flex items-center justify-between gap-4 bg-orange text-ink font-bold text-lg px-6 py-5 rounded-2xl border-2 border-orange hover:bg-tan hover:border-tan transition-colors">
             Pay &#8377;500 token
             <span class="group-hover:translate-x-1 transition-transform">→</span>
           </a>
-          <p class="text-center text-xs text-tan/45">
-            Opens Google Pay, PhonePe, Paytm or any UPI app on your phone
+          <p class="md:hidden text-center text-xs text-tan/45">
+            Opens Google Pay, PhonePe, Paytm or any UPI app
           </p>
 
-          <div class="mt-2 rounded-2xl border-2 border-dashed border-tan/20 px-5 py-4 text-center">
+          <!-- Laptop: upi:// links do nothing here, so scan instead -->
+          <div class="hidden md:flex flex-col items-center gap-4 bg-tan rounded-2xl border-2 border-tan p-6">
+            <img src="images/upi-qr.svg"
+                 alt="UPI QR code to pay the ₹500 seat token to The Office"
+                 width="65" height="65" class="w-44 h-44" />
+            <p class="text-center text-sm font-bold text-ink leading-snug">
+              Scan to pay &#8377;500<br />
+              <span class="font-medium text-ink/55">with any UPI app</span>
+            </p>
+          </div>
+
+          <div class="rounded-2xl border-2 border-dashed border-tan/20 px-5 py-4 text-center">
             <p class="text-[11px] font-bold uppercase tracking-wider text-tan/40">Or pay to this UPI ID</p>
             <p class="mt-1 font-bold text-base break-all">vishalbhosle83@oksbi</p>
           </div>
 
           <a href="https://wa.me/918850013526?text=Hi%2C%20I%20have%20paid%20the%20%E2%82%B9500%20token%20to%20book%20a%20seat%20at%20The%20Office.%20Sending%20the%20screenshot%20here."
              target="_blank" rel="noopener"
-             class="mt-1 flex items-center justify-center gap-2 bg-tan/10 text-tan font-bold text-sm sm:text-base px-5 py-4 rounded-2xl border-2 border-tan/25 hover:bg-orange hover:text-ink hover:border-orange transition-colors text-center">
-            Paid? Send us the screenshot ↗
+             class="flex items-center justify-center gap-2 bg-tan/10 text-tan font-bold text-sm sm:text-base px-5 py-4 rounded-2xl border-2 border-tan/25 hover:bg-orange hover:text-ink hover:border-orange transition-colors text-center">
+            Paid? Send the screenshot ↗
           </a>
-          <ol class="mt-1 flex flex-col gap-2 text-[13px] leading-relaxed text-tan/55">
-            <li class="flex gap-3"><span class="font-bold text-orange shrink-0">1</span> Pay &#8377;500 to the UPI ID above.</li>
-            <li class="flex gap-3"><span class="font-bold text-orange shrink-0">2</span> Send us the payment screenshot on WhatsApp.</li>
-            <li class="flex gap-3"><span class="font-bold text-orange shrink-0">3</span> We reply confirming your seat is held.</li>
-          </ol>
         </div>
       </div>
     </div>
