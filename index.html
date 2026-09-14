@@ -156,9 +156,19 @@
     border: 2px dashed rgba(17,17,17,.28); border-radius: 1.5rem;
     background: rgba(17,17,17,.035);
   }
-  .photo-ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  /* Matches the backdrop of the interior render so the fill never seams */
-  .hero-photo { background: #EFE8E1; }
+  .photo-ph img,
+  .photo-ph picture { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .photo-ph picture > img { position: static; }
+  /* The hero render is an isometric cutaway that reads better unframed:
+     no border, no fill, no shadow, so it sits straight on the page. */
+  .hero-photo {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    overflow: visible;
+  }
+  .hero-photo img { object-fit: contain; }
   .photo-ph__icon  { font-size: 1.75rem; line-height: 1; }
   .photo-ph__label { font-weight: 700; font-size: .875rem; }
   .photo-ph__size  { font-size: .6875rem; text-transform: uppercase; letter-spacing: .08em; opacity: .45; }
@@ -266,10 +276,13 @@
     </div>
       </div>
 
-      <figure class="photo-ph hero-photo border-solid border-ink aspect-[3/2] shadow-[8px_8px_0_#FF8550]">
-        <img src="images/hero-interior.jpg"
-             alt="Inside The Office: five desks with ergonomic chairs, a window, and a sofa lounge corner"
-             width="1400" height="788" fetchpriority="high" decoding="async" />
+      <figure class="photo-ph hero-photo aspect-[3/2]">
+        <picture>
+          <source srcset="images/hero-interior-cutout.webp" type="image/webp" />
+          <img src="images/hero-interior-cutout.png"
+               alt="Inside The Office: five desks with ergonomic chairs, a window, and a sofa lounge corner"
+               width="1158" height="780" fetchpriority="high" decoding="async" />
+        </picture>
       </figure>
     </div>
   </div>
