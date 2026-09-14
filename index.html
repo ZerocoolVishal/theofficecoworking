@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Office · Coworking Space in Ambernath West</title>
+<meta name="description" content="The Office is a modern coworking space in Ambernath West. Fixed desks at ₹2,999/month (offer price) and private cabins on request. High-speed Wi-Fi, power backup, air conditioning, printer and unlimited chai." />
+
+<!-- Open Graph / social sharing -->
+<meta property="og:title" content="The Office · Coworking Space in Ambernath West" />
+<meta property="og:description" content="Fixed desks from ₹2,999/month. Private cabins on request. G-65, Master Business Center, Wimco Naka, Ambernath 421505." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:SOFT,WONK,opsz,wght@0..100,0..1,9..144,100..900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<script>document.documentElement.classList.add('js');</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:    '#111111',
+          orange: '#FF8550',
+          tan:    '#F8F4F1',
+          cream:  '#FFFFFF',
+        },
+        fontFamily: {
+          display: ['Fraunces', 'Georgia', 'serif'],
+          sans:    ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        },
+      },
+    },
+  }
+</script>
+
+<style>
+  /* ---- Display type: the "wonky" optical serif that gives the page its character ---- */
+  .font-display {
+    font-variation-settings: 'SOFT' 30, 'WONK' 1, 'opsz' 144;
+    letter-spacing: -0.025em;
+    /* Fraunces' decorative ffi/fi ligatures render as a blob in words like
+       "Office" and "Wi-Fi", so turn ligatures off for all display type. */
+    font-variant-ligatures: none;
+    font-feature-settings: 'liga' 0, 'dlig' 0, 'clig' 0;
+  }
+
+  /* ---- Desktop hero: headline, buttons and photo all stay above the fold ----
+     The sticky marquee + nav take ~7.4rem, so the hero gets the rest of the
+     screen. Headline and photo are capped by vh as well as vw, so a short
+     laptop screen shrinks them instead of pushing the buttons out of view.
+     min-height (not height) means content can still grow rather than clip. */
+  @media (min-width: 1024px) {
+    .hero-inner {
+      min-height: calc(100vh - 7.4rem);
+      min-height: calc(100svh - 7.4rem);
+      display: flex;
+      align-items: center;
+      padding-top:    clamp(1rem, 3vh, 2.5rem);
+      padding-bottom: clamp(1rem, 3vh, 2.5rem);
+    }
+    /* Every vertical gap in the hero scales with screen height, so a short
+       laptop shrinks the whole block instead of pushing the CTAs off-screen. */
+    .hero-inner .h-hero     { font-size: min(13vw, 10vh, 7rem); }
+    .hero-inner .hero-badge { margin-bottom: clamp(0.75rem, 2.5vh, 2.25rem); }
+    .hero-inner .hero-copy  { margin-top:    clamp(1rem, 3vh, 2.5rem); }
+    .hero-inner .hero-cta   { margin-top:    clamp(1rem, 3vh, 2rem); }
+    .hero-photo             { height: min(54vh, 540px); }
+  }
+
+  /* Fluid headline sizing so the big type never breaks on a 360px phone */
+  .h-hero { font-size: clamp(3.25rem, 13vw, 7rem); line-height: 0.88; }
+  .h-sec  { font-size: clamp(2.25rem, 9vw, 4.5rem); line-height: 0.92; }
+
+  /* ---- Marquee ---- */
+  .marquee { display: flex; overflow: hidden; user-select: none; gap: 0; }
+  .marquee__track {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 2rem;
+    min-width: 100%;
+    animation: scroll 26s linear infinite;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+  }
+
+  /* ---- Reveal on scroll (progressive enhancement: hidden only when JS is running) ---- */
+  .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
+  .js .reveal.is-in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; }
+    .js .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Subtle paper grain over the whole page, keeps the flat colours from feeling sterile */
+  .grain::before {
+    content: '';
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 50; opacity: .035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---- Photo placeholders ----------------------------------------------
+     To use a real photo, just drop an <img> inside the <figure>:
+       <figure class="photo-ph aspect-[4/3]">
+         <img src="images/desks.jpg" alt="Desks at The Office" />
+       </figure>
+     The image covers the placeholder automatically. Delete the <span>s. */
+  .photo-ph {
+    position: relative; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: .3rem;
+    text-align: center; padding: 1.5rem; overflow: hidden;
+    border: 2px dashed rgba(17,17,17,.28); border-radius: 1.5rem;
+    background: rgba(17,17,17,.035);
+  }
+  .photo-ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .photo-ph__icon  { font-size: 1.75rem; line-height: 1; }
+  .photo-ph__label { font-weight: 700; font-size: .875rem; }
+  .photo-ph__size  { font-size: .6875rem; text-transform: uppercase; letter-spacing: .08em; opacity: .45; }
+
+  ::selection { background: #FF8550; color: #111111; }
+</style>
+</head>
+
+<body class="grain bg-tan text-ink font-sans antialiased overflow-x-hidden">
+
+<!-- ══════════════════════ TOP MARQUEE ══════════════════════ -->
+<div class="bg-ink text-tan py-2.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em]">
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>★ Now open in Ambernath West</span><span class="text-orange">◆</span>
+      <span>Launch offer: ₹2,999/month</span><span class="text-orange">◆</span>
+      <span>Fixed desks &amp; private cabins</span><span class="text-orange">◆</span>
+      <span>★ Now open in Ambernath West</span><span class="text-orange">◆</span>
+      <span>Launch offer: ₹2,999/month</span><span class="text-orange">◆</span>
+      <span>Fixed desks &amp; private cabins</span><span class="text-orange">◆</span>
+    </div>
+    <div class="marquee__track" aria-hidden="true">
+      <span>★ Now open in Ambernath West</span><span class="text-orange">◆</span>
+      <span>Launch offer: ₹2,999/month</span><span class="text-orange">◆</span>
+      <span>Fixed desks &amp; private cabins</span><span class="text-orange">◆</span>
+      <span>★ Now open in Ambernath West</span><span class="text-orange">◆</span>
+      <span>Launch offer: ₹2,999/month</span><span class="text-orange">◆</span>
+      <span>Fixed desks &amp; private cabins</span><span class="text-orange">◆</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<header class="sticky top-0 z-40 bg-tan/85 backdrop-blur-md border-b-2 border-ink">
+  <nav class="mx-auto max-w-6xl px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-2.5 shrink-0">
+      <span class="font-display font-black text-xl sm:text-2xl leading-none">The&nbsp;Office<span class="text-orange">.</span></span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
+      <a href="#pricing"    class="hover:text-orange transition-colors">Pricing</a>
+      <a href="#amenities"  class="hover:text-orange transition-colors">Amenities</a>
+      <a href="#cabins"     class="hover:text-orange transition-colors">Private cabins</a>
+      <a href="#visit"      class="hover:text-orange transition-colors">Visit us</a>
+    </div>
+
+    <a href="#visit"
+       class="shrink-0 bg-orange text-ink font-bold text-xs sm:text-sm px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border-2 border-ink shadow-[3px_3px_0_#111] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all">
+      Book a visit
+    </a>
+  </nav>
+</header>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section id="top" class="relative overflow-hidden">
+  <!-- decorative blobs -->
+  <div class="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-orange/25 blur-3xl"></div>
+  <div class="pointer-events-none absolute top-1/2 -left-32 w-80 h-80 rounded-full bg-orange/15 blur-3xl"></div>
+
+  <div class="hero-inner relative mx-auto max-w-6xl px-5 sm:px-8 pt-14 pb-16 sm:pt-24 sm:pb-24 lg:py-10">
+
+    <div class="w-full grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center">
+      <div>
+    <p class="hero-badge inline-flex items-center gap-2 bg-cream border-2 border-ink rounded-full px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] mb-7 sm:mb-9">
+      <span class="relative flex w-2 h-2">
+        <span class="absolute inline-flex w-full h-full rounded-full bg-orange opacity-75 animate-ping"></span>
+        <span class="relative inline-flex w-2 h-2 rounded-full bg-orange"></span>
+      </span>
+      Ambernath West
+    </p>
+
+    <h1 class="font-display font-black h-hero">
+      Work<span class="text-orange">.</span><br />
+      <span class="italic pr-[0.12em]">Not</span> From<br />
+      Home<span class="text-orange">.</span>
+    </h1>
+
+    <div class="hero-copy mt-8 sm:mt-10">
+      <div>
+        <p class="text-base sm:text-xl leading-relaxed max-w-lg text-ink/75">
+          A calm, fast, properly designed coworking space right here in Ambernath, so you
+          can stop taking client calls from your bedroom. Grab a fixed desk that is
+          <span class="font-bold text-ink">yours, every single day</span>.
+        </p>
+
+      <div class="hero-cta mt-8 flex flex-col sm:flex-row gap-3 sm:max-w-lg">
+        <a href="#pricing"
+           class="group flex-1 flex items-center justify-between gap-6 bg-ink text-tan font-bold text-base px-6 py-4 rounded-2xl border-2 border-ink shadow-[5px_5px_0_#FF8550] hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all">
+          See pricing
+          <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+        <a href="https://wa.me/918850013526?text=Hi%2C%20I%27d%20like%20to%20book%20a%20visit%20to%20The%20Office%20in%20Ambernath."
+           target="_blank" rel="noopener"
+           class="group flex-1 flex items-center justify-between gap-6 bg-cream text-ink font-bold text-base px-6 py-4 rounded-2xl border-2 border-ink shadow-[5px_5px_0_#111] hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all">
+          WhatsApp us
+          <span class="group-hover:translate-x-1 transition-transform">↗</span>
+        </a>
+        </div>
+      </div>
+    </div>
+      </div>
+
+      <!-- PHOTO PLACEHOLDER: swap the spans for an <img>, as in the Visit section -->
+      <figure class="photo-ph hero-photo border-solid border-ink aspect-[4/3] lg:aspect-auto shadow-[8px_8px_0_#FF8550]">
+        <span class="photo-ph__icon">📸</span>
+        <span class="photo-ph__label">Hero shot of the space</span>
+        <span class="photo-ph__size">Square-ish · 1500 × 1500px</span>
+      </figure>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════ PRICING ══════════════════════ -->
+<section id="pricing" class="bg-cream border-t-2 border-ink scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-28">
+
+    <div class="reveal max-w-2xl">
+      <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange mb-4">01 / Pricing</p>
+      <h2 class="font-display font-black h-sec">One Desk<span class="text-orange">,</span><br />One Price<span class="text-orange">.</span></h2>
+      <p class="mt-5 text-base sm:text-lg text-ink/70 leading-relaxed">
+        No confusing tiers, no hourly maths. A fixed desk with your name on it. Everything included.
+      </p>
+    </div>
+
+    <div class="mt-10 sm:mt-16 grid lg:grid-cols-[1.15fr_1fr] gap-6 lg:gap-8 items-stretch">
+
+      <!-- ── Fixed desk card ── -->
+      <div class="reveal relative bg-ink text-tan rounded-3xl border-2 border-ink p-7 sm:p-12 shadow-[8px_8px_0_#FF8550] overflow-hidden">
+        <div class="pointer-events-none absolute -top-20 -right-20 w-64 h-64 rounded-full bg-orange/20 blur-2xl"></div>
+
+        <span class="absolute top-6 right-6 sm:top-8 sm:right-8 rotate-[8deg] bg-orange text-ink text-[10px] sm:text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-full border-2 border-ink">
+          Launch offer
+        </span>
+
+        <p class="relative text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange">Fixed desk</p>
+        <h3 class="relative font-display font-black text-4xl sm:text-6xl mt-2 leading-none">Your Own<br />Desk<span class="text-orange">.</span></h3>
+
+        <div class="relative mt-8 flex flex-wrap items-end gap-x-4 gap-y-2">
+          <span class="font-display font-black text-5xl sm:text-7xl leading-none">₹2,999</span>
+          <span class="text-lg sm:text-2xl text-tan/45 line-through decoration-orange decoration-2">₹3,499</span>
+          <span class="text-sm sm:text-base text-tan/60 font-medium">/ month</span>
+        </div>
+        <p class="relative mt-3 text-sm text-orange font-semibold">You save ₹500 every month · limited seats</p>
+
+        <ul class="relative mt-9 space-y-3.5 text-sm sm:text-base">
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> A dedicated desk reserved only for you</li>
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> High-speed Wi-Fi with backup connection</li>
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> Ergonomic chair and personal storage</li>
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> Full power backup, so you never lose a call</li>
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> Printer and scanner on site</li>
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> Unlimited chai, coffee and drinking water</li>
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> Air-conditioned, housekeeping included</li>
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> Use the address for your business</li>
+        </ul>
+
+        <a href="https://wa.me/918850013526?text=Hi%2C%20I%27d%20like%20to%20book%20a%20fixed%20desk%20at%20The%20Office%20for%20%E2%82%B92%2C999%2Fmonth."
+           target="_blank" rel="noopener"
+           class="relative mt-10 flex items-center justify-center gap-2 bg-orange text-ink font-bold text-base sm:text-lg px-6 py-4 rounded-2xl border-2 border-orange hover:bg-tan hover:border-tan transition-colors">
+          Claim a desk →
+        </a>
+        <p class="relative mt-3 text-center text-xs text-tan/50">No deposit drama<sup class="text-orange font-bold">*</sup> · Walk in for a free day trial</p>
+        <p class="relative mt-3 text-center text-[11px] leading-relaxed text-tan/40">
+          <span class="text-orange font-bold">*</span> A refundable deposit applies on the 1 month plan.
+          Take a 6 month plan and there is no deposit at all.
+        </p>
+      </div>
+
+      <!-- ── Private cabin card ── -->
+      <div id="cabins" class="reveal flex flex-col bg-tan rounded-3xl border-2 border-ink p-7 sm:p-12 shadow-[8px_8px_0_#111] scroll-mt-24">
+        <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange">Private cabins</p>
+        <h3 class="font-display font-black text-4xl sm:text-5xl mt-2 leading-none">Need A<br />Room<span class="text-orange">?</span></h3>
+
+        <p class="mt-6 text-base leading-relaxed text-ink/70">
+          Lockable, private cabins for teams of 2 to 8, with your own door, your own
+          whiteboard and your own rules. Sizes and pricing depend on how much space
+          you need, so let's talk.
+        </p>
+
+        <ul class="mt-8 space-y-3.5 text-sm sm:text-base">
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> Lockable, fully furnished cabin</li>
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> Flexible sizes for small teams</li>
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> Everything in the fixed desk plan</li>
+          <li class="flex gap-3"><span class="text-orange font-bold shrink-0">✓</span> Custom monthly pricing</li>
+        </ul>
+
+        <div class="mt-9 lg:mt-auto lg:pt-9 rounded-2xl bg-cream border-2 border-dashed border-ink/25 p-5 text-center">
+          <p class="font-display font-black text-2xl sm:text-3xl">Let's Talk<span class="text-orange">.</span></p>
+          <p class="mt-1 text-sm text-ink/60">Tell us your team size, we'll send a quote.</p>
+        </div>
+
+        <a href="https://wa.me/918850013526?text=Hi%2C%20I%27m%20interested%20in%20a%20private%20cabin%20at%20The%20Office%20in%20Ambernath."
+           target="_blank" rel="noopener"
+           class="mt-6 flex items-center justify-center gap-2 bg-ink text-tan font-bold text-base sm:text-lg px-6 py-4 rounded-2xl border-2 border-ink hover:bg-orange hover:text-ink transition-colors">
+          Enquire about cabins →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ AMENITIES ══════════════════════ -->
+<section id="amenities" class="bg-tan border-t-2 border-ink scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-28">
+
+    <div class="reveal max-w-2xl">
+      <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange mb-4">02 / What you get</p>
+      <h2 class="font-display font-black h-sec">Everything<br />Included<span class="text-orange">.</span></h2>
+    </div>
+
+    <div class="mt-10 sm:mt-16 grid grid-cols-1 min-[380px]:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+      <div class="reveal group bg-cream rounded-2xl border-2 border-ink p-5 sm:p-7 hover:bg-orange transition-colors">
+        <p class="text-2xl sm:text-3xl">⚡</p>
+        <h3 class="font-display font-black text-lg sm:text-2xl mt-3 leading-tight">Fast Wi-Fi</h3>
+        <p class="mt-1.5 text-xs sm:text-sm text-ink/60 group-hover:text-ink/80">High-speed broadband with a backup line, so meetings never drop.</p>
+      </div>
+      <div class="reveal group bg-cream rounded-2xl border-2 border-ink p-5 sm:p-7 hover:bg-orange transition-colors">
+        <p class="text-2xl sm:text-3xl">🔌</p>
+        <h3 class="font-display font-black text-lg sm:text-2xl mt-3 leading-tight">Power Backup</h3>
+        <p class="mt-1.5 text-xs sm:text-sm text-ink/60 group-hover:text-ink/80">Ambernath load-shedding is not your problem anymore.</p>
+      </div>
+      <div class="reveal group bg-cream rounded-2xl border-2 border-ink p-5 sm:p-7 hover:bg-orange transition-colors">
+        <p class="text-2xl sm:text-3xl">❄️</p>
+        <h3 class="font-display font-black text-lg sm:text-2xl mt-3 leading-tight">Air Conditioned</h3>
+        <p class="mt-1.5 text-xs sm:text-sm text-ink/60 group-hover:text-ink/80">Cool, quiet and clean through every Maharashtra summer.</p>
+      </div>
+      <div class="reveal group bg-cream rounded-2xl border-2 border-ink p-5 sm:p-7 hover:bg-orange transition-colors">
+        <p class="text-2xl sm:text-3xl">🖨️</p>
+        <h3 class="font-display font-black text-lg sm:text-2xl mt-3 leading-tight">Printer &amp; Scanner</h3>
+        <p class="mt-1.5 text-xs sm:text-sm text-ink/60 group-hover:text-ink/80">Print, scan and copy on site whenever you need to.</p>
+      </div>
+      <div class="reveal group bg-cream rounded-2xl border-2 border-ink p-5 sm:p-7 hover:bg-orange transition-colors">
+        <p class="text-2xl sm:text-3xl">☕</p>
+        <h3 class="font-display font-black text-lg sm:text-2xl mt-3 leading-tight">Unlimited Chai</h3>
+        <p class="mt-1.5 text-xs sm:text-sm text-ink/60 group-hover:text-ink/80">Chai, coffee and filtered water on tap. All day, every day.</p>
+      </div>
+      <div class="reveal bg-orange rounded-2xl border-2 border-ink p-5 sm:p-7 flex flex-col justify-between">
+        <div>
+          <p class="text-2xl sm:text-3xl">👋</p>
+          <h3 class="font-display font-black text-lg sm:text-2xl mt-3 leading-tight">Come Try It</h3>
+          <p class="mt-1.5 text-xs sm:text-sm text-ink/70">Spend a day with us for free, then decide.</p>
+        </div>
+        <a href="#visit" class="mt-5 inline-flex items-center gap-1.5 font-bold text-sm sm:text-base border-b-2 border-ink w-fit hover:gap-3 transition-all">
+          Book a visit <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ VISIT / LOCATION ══════════════════════ -->
+<section id="visit" class="bg-cream border-t-2 border-ink scroll-mt-20">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-28">
+
+    <div class="reveal max-w-2xl">
+      <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange mb-4">03 / Come see it</p>
+      <h2 class="font-display font-black h-sec">Find Us In<br />Ambernath<span class="text-orange">.</span></h2>
+      <p class="mt-5 text-base sm:text-lg text-ink/70 leading-relaxed">
+        Walk in any day for a free trial. Sit at a desk, use the Wi-Fi, drink our chai,
+        and decide afterwards.
+      </p>
+    </div>
+
+    <div class="reveal mt-10 sm:mt-16">
+      <figure class="photo-ph border-solid border-ink shadow-[8px_8px_0_#FF8550] aspect-[3/2] sm:aspect-[16/9]">
+        <img src="images/master-business-center.jpg"
+             alt="Master Business Center in Ambernath West, the building The Office is located in"
+             width="1293" height="864" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+
+    <div class="reveal mt-6 grid md:grid-cols-2 gap-6">
+
+      <div class="bg-ink text-tan rounded-3xl border-2 border-ink p-7 sm:p-10 shadow-[8px_8px_0_#FF8550]">
+        <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange">Address</p>
+        <p class="font-display font-black text-2xl sm:text-4xl mt-3 leading-tight">
+          G-65,<br />Master Business Center,<br />Wimco Naka
+        </p>
+        <p class="mt-4 text-sm sm:text-base text-tan/55 leading-relaxed">
+          Kalyan Badlapur Road, next to Miraj Cinemas,<br />
+          Housing Board Colony, Ambernath,<br />Maharashtra 421505
+        </p>
+        <p class="mt-4 text-sm text-orange font-semibold">5 minutes from Ambernath station</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=G-65%2C+Master+Business+Center%2C+Kalyan+Badlapur+Rd%2C+Wimco+Naka%2C+Housing+Board+Colony%2C+Ambernath%2C+Maharashtra+421505"
+           target="_blank" rel="noopener"
+           class="mt-8 inline-flex items-center gap-2 bg-orange text-ink font-bold px-6 py-3.5 rounded-full border-2 border-orange hover:bg-tan hover:border-tan transition-colors">
+          Open in Google Maps ↗
+        </a>
+      </div>
+
+      <div class="bg-tan rounded-3xl border-2 border-ink p-7 sm:p-10 shadow-[8px_8px_0_#111] flex flex-col">
+        <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-orange">Get in touch</p>
+        <p class="font-display font-black text-2xl sm:text-4xl mt-3 leading-tight">Say Hello<span class="text-orange">.</span></p>
+
+        <div class="mt-7 space-y-3">
+          <a href="https://wa.me/918850013526?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20The%20Office%20in%20Ambernath."
+             target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-3 bg-cream border-2 border-ink rounded-2xl px-5 py-4 font-bold hover:bg-orange transition-colors">
+            <span>WhatsApp</span><span>↗</span>
+          </a>
+          <a href="tel:+918850013526"
+             class="flex items-center justify-between gap-3 bg-cream border-2 border-ink rounded-2xl px-5 py-4 font-bold hover:bg-orange transition-colors">
+            <span>+91 88500 13526</span><span>↗</span>
+          </a>
+          <a href="mailto:hello@theofficecoworks.in"
+             class="flex items-center justify-between gap-3 bg-cream border-2 border-ink rounded-2xl px-5 py-4 font-bold hover:bg-orange transition-colors break-all">
+            <span>hello@theofficecoworks.in</span><span class="shrink-0">↗</span>
+          </a>
+        </div>
+
+        <div class="mt-auto pt-7">
+          <p class="text-sm font-bold uppercase tracking-wider text-ink/45">Open hours</p>
+          <p class="mt-1.5 text-base">Monday to Saturday</p>
+          <p class="text-base font-bold">8:00 AM to 10:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FINAL CTA ══════════════════════ -->
+<section class="bg-orange border-t-2 border-ink">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 py-16 sm:py-28 text-center">
+    <h2 class="reveal font-display font-black h-sec">
+      Stop Working<br />From The Sofa<span class="text-ink/40">.</span>
+    </h2>
+    <p class="reveal mt-5 text-base sm:text-xl text-ink/75 max-w-lg mx-auto">
+      Fixed desks at ₹2,999/month. Private cabins on request. Free day trial, no strings.
+    </p>
+    <div class="reveal mt-9 flex flex-col sm:flex-row gap-3 justify-center max-w-md sm:max-w-none mx-auto">
+      <a href="https://wa.me/918850013526?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20trial%20day%20at%20The%20Office."
+         target="_blank" rel="noopener"
+         class="bg-ink text-tan font-bold text-base sm:text-lg px-8 py-4 rounded-2xl border-2 border-ink shadow-[5px_5px_0_#fff] hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all">
+        Book a free trial day
+      </a>
+      <a href="tel:+918850013526"
+         class="bg-cream text-ink font-bold text-base sm:text-lg px-8 py-4 rounded-2xl border-2 border-ink shadow-[5px_5px_0_#111] hover:shadow-none hover:translate-x-[5px] hover:translate-y-[5px] transition-all">
+        Call us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer class="bg-ink text-tan border-t-2 border-ink">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8 py-12 sm:py-16">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
+      <div>
+        <div class="flex items-center">
+          <span class="font-display font-black text-3xl leading-none">The Office<span class="text-orange">.</span></span>
+        </div>
+        <p class="mt-4 text-sm text-tan/55 max-w-xs leading-relaxed">
+          The Office Co-working Space · G-65, Master Business Center, Kalyan Badlapur Road, next to Miraj Cinemas, Wimco Naka, Ambernath, Maharashtra 421505
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-x-7 gap-y-2 text-sm font-semibold">
+        <a href="#pricing"   class="hover:text-orange transition-colors">Pricing</a>
+        <a href="#amenities" class="hover:text-orange transition-colors">Amenities</a>
+        <a href="#cabins"    class="hover:text-orange transition-colors">Cabins</a>
+        <a href="#visit"     class="hover:text-orange transition-colors">Visit</a>
+      </div>
+    </div>
+    <p class="mt-10 pt-6 border-t border-tan/15 text-xs text-tan/40">
+      © <span id="year">2026</span> The Office Co-working Space, Ambernath. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Current year in the footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Reveal sections as they scroll into view
+  const targets = document.querySelectorAll('.reveal');
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach((el) => el.classList.add('is-in'));
+  } else {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  targets.forEach((el, i) => {
+    el.style.transitionDelay = (i % 6) * 60 + 'ms';
+    io.observe(el);
+  });
+  }
+</script>
+
+</body>
+</html>
