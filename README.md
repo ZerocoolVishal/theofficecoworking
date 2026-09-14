@@ -110,6 +110,10 @@ Two limits worth knowing, both because this is a static page with no server:
 
 UPI also lets the payer edit the amount, so ₹500 is prefilled, not enforced.
 
+The token is refundable: cancel any time and it is returned, and it is returned
+too if the opening is delayed or does not happen. That promise is stated on the
+page, so honour it manually when someone asks.
+
 ## Analytics
 
 Google Analytics 4, property `G-QB4TTBKSGJ`, tagged in the head of `index.html`.
@@ -122,5 +126,8 @@ Define internal traffic, or just ignore hits with a `localhost` hostname.
 ## Before going live
 
 - Confirm the opening days (currently listed as Monday to Saturday, 8:00 AM to 10:00 PM)
+- Decide whether the ₹500 token is adjusted against the first month for people who
+  do join. The page says it is refundable on cancellation, but not what happens
+  when someone stays
 - Check the amenity copy is accurate: ergonomic chairs and storage, housekeeping,
   business address use, cabins for 2–8 people, and the free trial day
