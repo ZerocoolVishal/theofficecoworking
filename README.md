@@ -110,6 +110,15 @@ Two limits worth knowing, both because this is a static page with no server:
 
 UPI also lets the payer edit the amount, so ₹500 is prefilled, not enforced.
 
+## Analytics
+
+Google Analytics 4, property `G-QB4TTBKSGJ`, tagged in the head of `index.html`.
+It only records real traffic once the site is reachable at a public address.
+
+Local testing counts as traffic. To keep it out of reports, add an internal
+traffic filter in GA under Admin → Data Streams → Configure tag settings →
+Define internal traffic, or just ignore hits with a `localhost` hostname.
+
 ## Before going live
 
 - Confirm the opening days (currently listed as Monday to Saturday, 8:00 AM to 10:00 PM)
