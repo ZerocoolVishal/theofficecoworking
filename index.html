@@ -437,22 +437,22 @@
             Reserving one takes two steps.
           </p>
 
-          <ol class="mt-7 flex flex-col gap-5">
-            <li class="flex gap-4">
-              <span class="grid place-items-center shrink-0 w-9 h-9 rounded-full bg-orange text-ink font-display font-black text-lg">1</span>
+          <ol class="mt-8 flex flex-col gap-6">
+            <li class="flex gap-4 sm:gap-5">
+              <span class="grid place-items-center shrink-0 w-11 h-11 rounded-full bg-orange text-ink font-display font-black text-xl">1</span>
               <div>
-                <p class="font-bold text-base sm:text-lg">Pay the &#8377;500 token</p>
-                <p class="text-sm text-tan/55 leading-relaxed">
+                <p class="font-display font-black text-xl sm:text-2xl leading-tight">Pay the &#8377;500 token</p>
+                <p class="mt-1 text-sm sm:text-base text-tan/55 leading-relaxed">
                   <span class="md:hidden">Tap the button below and pick your UPI app. If your phone jumps straight into one app, use the named buttons instead.</span>
                   <span class="hidden md:inline">Scan the code with your phone camera or any UPI app. Google Pay, PhonePe and Paytm all read it.</span>
                 </p>
               </div>
             </li>
-            <li class="flex gap-4">
-              <span class="grid place-items-center shrink-0 w-9 h-9 rounded-full bg-orange text-ink font-display font-black text-lg">2</span>
+            <li class="flex gap-4 sm:gap-5">
+              <span class="grid place-items-center shrink-0 w-11 h-11 rounded-full bg-orange text-ink font-display font-black text-xl">2</span>
               <div>
-                <p class="font-bold text-base sm:text-lg">Send us the screenshot on WhatsApp</p>
-                <p class="text-sm text-tan/55 leading-relaxed">We reply confirming the seat is held in your name.</p>
+                <p class="font-display font-black text-xl sm:text-2xl leading-tight">Send us the screenshot on WhatsApp</p>
+                <p class="mt-1 text-sm sm:text-base text-tan/55 leading-relaxed">We reply confirming the seat is held in your name.</p>
               </div>
             </li>
           </ol>
@@ -462,7 +462,7 @@
 
           <!-- Phone: opens the UPI app directly -->
           <a href="upi://pay?pa=vishalbhosle83@oksbi&amp;pn=The%20Office%20Co-working%20Space&amp;am=500&amp;cu=INR&amp;tn=Seat%20booking%20token"
-             class="md:hidden group flex items-center justify-between gap-4 bg-orange text-ink font-bold text-lg px-6 py-5 rounded-2xl border-2 border-orange hover:bg-tan hover:border-tan transition-colors">
+             class="md:hidden group flex items-center justify-between gap-4 bg-orange text-ink font-bold text-lg sm:text-xl px-6 py-5 rounded-2xl border-2 border-orange hover:bg-tan hover:border-tan transition-colors">
             Pay &#8377;500 token
             <span class="group-hover:translate-x-1 transition-transform">→</span>
           </a>
@@ -473,11 +473,11 @@
                default. Same payload as the button above. -->
           <div class="md:hidden flex items-stretch gap-2">
             <a href="tez://upi/pay?pa=vishalbhosle83@oksbi&amp;pn=The%20Office%20Co-working%20Space&amp;am=500&amp;cu=INR&amp;tn=Seat%20booking%20token"
-               class="flex-1 text-center bg-tan/10 border-2 border-tan/20 rounded-xl px-2 py-3 text-xs font-bold hover:bg-orange hover:text-ink hover:border-orange transition-colors">Google Pay</a>
+               class="flex-1 text-center bg-tan/10 border-2 border-tan/20 rounded-xl px-2 py-3.5 text-sm font-bold hover:bg-orange hover:text-ink hover:border-orange transition-colors">Google Pay</a>
             <a href="phonepe://pay?pa=vishalbhosle83@oksbi&amp;pn=The%20Office%20Co-working%20Space&amp;am=500&amp;cu=INR&amp;tn=Seat%20booking%20token"
-               class="flex-1 text-center bg-tan/10 border-2 border-tan/20 rounded-xl px-2 py-3 text-xs font-bold hover:bg-orange hover:text-ink hover:border-orange transition-colors">PhonePe</a>
+               class="flex-1 text-center bg-tan/10 border-2 border-tan/20 rounded-xl px-2 py-3.5 text-sm font-bold hover:bg-orange hover:text-ink hover:border-orange transition-colors">PhonePe</a>
             <a href="paytmmp://pay?pa=vishalbhosle83@oksbi&amp;pn=The%20Office%20Co-working%20Space&amp;am=500&amp;cu=INR&amp;tn=Seat%20booking%20token"
-               class="flex-1 text-center bg-tan/10 border-2 border-tan/20 rounded-xl px-2 py-3 text-xs font-bold hover:bg-orange hover:text-ink hover:border-orange transition-colors">Paytm</a>
+               class="flex-1 text-center bg-tan/10 border-2 border-tan/20 rounded-xl px-2 py-3.5 text-sm font-bold hover:bg-orange hover:text-ink hover:border-orange transition-colors">Paytm</a>
           </div>
 
           <!-- Laptop: upi:// links do nothing here, so scan instead -->
@@ -485,12 +485,12 @@
             <img src="images/upi-qr.svg"
                  alt="UPI QR code to pay the ₹500 seat token to The Office"
                  width="65" height="65" class="w-44 h-44" />
-            <p class="text-center text-sm font-bold text-ink leading-snug">Scan to pay &#8377;500</p>
+            <p class="text-center text-base sm:text-lg font-bold text-ink leading-snug">Scan to pay &#8377;500</p>
           </div>
 
           <div class="rounded-2xl border-2 border-dashed border-tan/20 px-5 py-4 text-center">
             <p class="text-[11px] font-bold uppercase tracking-wider text-tan/40">Or pay to this UPI ID</p>
-            <p class="mt-1 font-bold text-base break-all">vishalbhosle83@oksbi</p>
+            <p class="mt-1.5 font-bold text-lg sm:text-xl break-all">vishalbhosle83@oksbi</p>
           </div>
 
           <a href="https://wa.me/918850013526?text=Hi%2C%20I%20have%20paid%20the%20%E2%82%B9500%20token%20to%20book%20a%20seat%20at%20The%20Office.%20Sending%20the%20screenshot%20here."
