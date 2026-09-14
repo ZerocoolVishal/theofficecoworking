@@ -430,7 +430,10 @@
               <span class="grid place-items-center shrink-0 w-9 h-9 rounded-full bg-orange text-ink font-display font-black text-lg">1</span>
               <div>
                 <p class="font-bold text-base sm:text-lg">Pay the &#8377;500 token</p>
-                <p class="text-sm text-tan/55 leading-relaxed">On your phone, tap the button. On a laptop, scan the code with any UPI app.</p>
+                <p class="text-sm text-tan/55 leading-relaxed">
+                  <span class="md:hidden">Tap the button below. It opens Google Pay, PhonePe, Paytm or whichever UPI app you already use.</span>
+                  <span class="hidden md:inline">Scan the code with your phone camera or any UPI app. Google Pay, PhonePe and Paytm all read it.</span>
+                </p>
               </div>
             </li>
             <li class="flex gap-4">
@@ -451,19 +454,13 @@
             Pay &#8377;500 token
             <span class="group-hover:translate-x-1 transition-transform">→</span>
           </a>
-          <p class="md:hidden text-center text-xs text-tan/45">
-            Opens Google Pay, PhonePe, Paytm or any UPI app
-          </p>
 
           <!-- Laptop: upi:// links do nothing here, so scan instead -->
           <div class="hidden md:flex flex-col items-center gap-4 bg-tan rounded-2xl border-2 border-tan p-6">
             <img src="images/upi-qr.svg"
                  alt="UPI QR code to pay the ₹500 seat token to The Office"
                  width="65" height="65" class="w-44 h-44" />
-            <p class="text-center text-sm font-bold text-ink leading-snug">
-              Scan to pay &#8377;500<br />
-              <span class="font-medium text-ink/55">with any UPI app</span>
-            </p>
+            <p class="text-center text-sm font-bold text-ink leading-snug">Scan to pay &#8377;500</p>
           </div>
 
           <div class="rounded-2xl border-2 border-dashed border-tan/20 px-5 py-4 text-center">
