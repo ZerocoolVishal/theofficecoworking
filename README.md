@@ -97,7 +97,7 @@ and it covers the frame automatically.
 
 ## Booking a seat
 
-The space opens on 1 October. Until then the page sells pre-booked fixed desks:
+The space opens on 1st October. Until then the page sells pre-booked fixed desks:
 a visitor pays a ₹500 token over UPI, sends the screenshot on WhatsApp, and the
 seat is held.
 
